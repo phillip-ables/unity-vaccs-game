@@ -283,6 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57003400daa72f34d85282e5c2619ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baby: {fileID: 114832508875753118, guid: 404a6272446380d46aca51babae5df05, type: 2}
+  needle: {fileID: 114192451024839912, guid: 444f624fed8a5ff4990d17ef83345f02, type: 2}
 --- !u!4 &859545049
 Transform:
   m_ObjectHideFlags: 0
