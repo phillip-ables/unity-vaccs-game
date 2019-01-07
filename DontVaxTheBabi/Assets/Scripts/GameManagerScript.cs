@@ -13,8 +13,11 @@ public class GameManagerScript : MonoBehaviour {
 	void Start () {
         // Convert screen's pixel coordinate into game's coordinate
         bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
+        topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
         Instantiate(baby);
         Instantiate(needle);
+
+        needle.Init(5);
 	}
 }
