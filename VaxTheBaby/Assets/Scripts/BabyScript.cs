@@ -5,6 +5,7 @@ using UnityEngine;
 public class BabyScript : MonoBehaviour {
     public float speed;
     public float fastSpeed;
+    public float waitTime;
  
     private float height;
     private float width;
@@ -13,21 +14,28 @@ public class BabyScript : MonoBehaviour {
     private bool isElectric;
     private float electricMultiplier = 4;
     private Animation mController;
-
-
-	// Use this for initialization
+    private float timeToNextBaby;
+    
 	void Start () {
         height = transform.localScale.y;
         width = transform.localScale.x;
+        timeToNextBaby = waitTime;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void Init(int babyCount)
+    {
+        while(babyCount != 0)
+        {
+            timeToNextBaby -= Time.deltaTime;
+            if (timeToNextBaby < 0)
+            {
+                timeToNextBaby = waitTime;
+            }
+        }
+    }
 
     public void WallCollision()
     {
-        GetComponent<SpriteRenderer>().flipX
+        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
     }
 }
