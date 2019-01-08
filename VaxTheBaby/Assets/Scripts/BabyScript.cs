@@ -23,23 +23,39 @@ public class BabyScript : MonoBehaviour {
 
     public void Init(int babyCount)
     {
+        for(int i = 0; i < babyCount; i++)
+        {
+            Instantiate(gameObject);
+            Debug.Log("Active? " + gameObject.activeInHierarchy);
+            //StartCoroutine(MakeBaby());
+        }
+
+
+        /*
         Vector2 initialPos = new Vector2(
                                     GameManager.bottomLeft.x +( width / 2),
                                     Random.Range(GameManager.bottomLeft.y, GameManager.topRight.y));
         Instantiate(gameObject);
         transform.position = initialPos;
+        babyCount--;
 
         timeToNextBaby = waitTime;
 
         while (babyCount != 0)
         {
             timeToNextBaby -= Time.deltaTime;
-            if (timeToNextBaby < 0)
+            if (timeToNextBaby <= 0)
             {
                 if (Random.Range(0, 1) <= .5)
+                {
                     initialPos.x = GameManager.topRight.x;
+                    GetComponent<SpriteRenderer>().flipX = true;
+                }
                 else
+                {
                     initialPos.x = GameManager.bottomLeft.x;
+                    GetComponent<SpriteRenderer>().flipX = false;
+                }
 
                 initialPos.y = Random.Range(GameManager.bottomLeft.y, GameManager.topRight.y);
                 Instantiate(gameObject);
@@ -49,6 +65,29 @@ public class BabyScript : MonoBehaviour {
                 babyCount--;
             }
         }
+        */
+    }
+
+    public void MakeBaby()
+    {
+        Vector2 initialPos = Vector2.zero;
+        if (Random.Range(0, 1) <= .5)
+        {
+            initialPos.x = GameManager.topRight.x;
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            initialPos.x = GameManager.bottomLeft.x;
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        initialPos.y = Random.Range(GameManager.bottomLeft.y, GameManager.topRight.y);
+        Instantiate(gameObject);
+        transform.position = initialPos;
+
+        Debug.Log("Finished Making Baby");
+        //yield return new WaitForSeconds((waitTime));
     }
 
     public void WallCollision()

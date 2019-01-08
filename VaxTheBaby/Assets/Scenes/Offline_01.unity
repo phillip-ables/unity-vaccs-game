@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baby: {fileID: 114838274864222226, guid: 906d8bedb0a7a92449fdae80c920183f, type: 2}
   needle: {fileID: 114810272929740858, guid: d13f994d64d393e43903dc7b000e86ef, type: 2}
+  babyCount: 5
 --- !u!4 &405527842
 Transform:
   m_ObjectHideFlags: 0
