@@ -10,6 +10,11 @@ public class NeedleScript : MonoBehaviour {
 
     private float spriteAngleRot = 25;
 
+    private void Start()
+    {
+        isFired = false;
+    }
+
     private void Update()
     {
         //Debug.Log(isFired);
