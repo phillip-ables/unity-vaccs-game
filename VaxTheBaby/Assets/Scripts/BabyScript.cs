@@ -19,12 +19,19 @@ public class BabyScript : MonoBehaviour {
 	void Start () {
         height = transform.localScale.y;
         width = transform.localScale.x;
-        timeToNextBaby = waitTime;
 	}
 
     public void Init(int babyCount)
     {
-        while(babyCount != 0)
+        Vector2 initialPos = new Vector2(
+                                    GameManager.bottomLeft.x + width / 2,
+                                    Random.Range(GameManager.bottomLeft.y, GameManager.topRight.y));
+        Instantiate(gameObject);
+        transform.position = initialPos;
+
+        timeToNextBaby = waitTime;
+
+        while (babyCount != 0)
         {
             timeToNextBaby -= Time.deltaTime;
             if (timeToNextBaby < 0)
