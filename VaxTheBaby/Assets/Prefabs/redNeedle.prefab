@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liveNeedle: {fileID: 1226718737033128, guid: bf1077ec91a36b14380418af41e1ae4b, type: 2}
   deadNeedle: {fileID: 1155140539433250, guid: 3b6c9eff88115bb4e88aab74ad985194, type: 2}
+  throwSpeed: 5
 --- !u!212 &212093840970879236
 SpriteRenderer:
   m_ObjectHideFlags: 1

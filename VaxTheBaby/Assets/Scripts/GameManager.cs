@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
     public BabyScript baby;
     public NeedleScript needle;
     public int babyCount;
+    public int needleCount;
 
     public static Vector2 bottomLeft;
     public static Vector2 topRight;
@@ -18,13 +19,23 @@ public class GameManager : MonoBehaviour {
         bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         babyTime = baby.waitTime;
-        Instantiate(needle);
+        //Instantiate(needle);
 
-        needle.Init(5);
+        needle.Init(needleCount);
     }
 
     private void Update()
     {
+        if (Input.GetButtonUp("Fire1"))
+        {
+            //Debug.Log("Fire");
+            //StartCoroutine(needle.FireNeedle());
+            needle.isFired = true;
+            //Debug.Log(needle.isFired);
+            needle.Firing();
+            needleCount--;
+        }
+
         //Init Babies
         if (babyCount > 0)
         {

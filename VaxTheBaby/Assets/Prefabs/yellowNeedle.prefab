@@ -66,13 +66,15 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831048147021916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8e7a66df065a2f479bdcdab8d19521c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   liveNeedle: {fileID: 1226718737033128, guid: bf1077ec91a36b14380418af41e1ae4b, type: 2}
   deadNeedle: {fileID: 1155140539433250, guid: 3b6c9eff88115bb4e88aab74ad985194, type: 2}
+  throwSpeed: 50
+  isFired: 1
 --- !u!212 &212066395151508274
 SpriteRenderer:
   m_ObjectHideFlags: 1

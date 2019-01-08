@@ -5,10 +5,35 @@ using UnityEngine;
 public class NeedleScript : MonoBehaviour {
     public GameObject liveNeedle;
     public GameObject deadNeedle;
+    public float throwSpeed;
+    public bool isFired;
 
     private float spriteAngleRot = 25;
 
+    private void Update()
+    {
+        //Debug.Log(isFired);
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Debug.Log("Started");
+            Vector3 pos = transform.position;
+            pos += Vector3.up * throwSpeed * Time.deltaTime;
+            transform.position = pos;
+            if (pos.y > GameManager.topRight.y)
+            {
+                Debug.Log("Finished");
+                isFired = false;
 
+            }
+        }
+
+        if (isFired)
+        {
+            Debug.Log("nothing ever works");
+
+        }
+    }
+    
     public void Init(int needleCount)
     {
         float spriteWidth = liveNeedle.transform.localScale.x;
@@ -47,5 +72,25 @@ public class NeedleScript : MonoBehaviour {
                 transform.position = pos;
             }
         }
+    }
+
+    public IEnumerator FireNeedle()
+    {
+        Debug.Log("Fire has arrived");
+        while (transform.position.y < GameManager.topRight.y )
+        {
+            Vector3 pos = transform.position;
+            pos += Vector3.up * throwSpeed * Time.deltaTime;
+            transform.position = pos;
+            Debug.Log(pos.y);
+            yield return new WaitForSeconds(.3f);
+        }
+    }
+
+    public void Firing()
+    {
+        Debug.Log("Firing was called");
+        isFired = true;
+        Debug.Log(isFired);
     }
 }
