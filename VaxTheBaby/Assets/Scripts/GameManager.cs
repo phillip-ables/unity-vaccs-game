@@ -17,9 +17,7 @@ public class GameManager : MonoBehaviour {
         //Convert screen's pivel coordinate into game's coordinate
         bottomLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        babyTime = 0;
-
-        Instantiate(baby);
+        babyTime = baby.waitTime;
         Instantiate(needle);
 
         needle.Init(5);
@@ -27,14 +25,14 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        //Debug.Log("Entered Update");
+        //Init Babies
         if (babyCount > 0)
         {
             if (babyTime > baby.waitTime)
             {
                 baby.MakeBaby();
                 babyTime = 0;
-                Debug.Log("MadeBaby");
+                //Debug.Log("MadeBaby");
                 babyCount--;
             }
             else
