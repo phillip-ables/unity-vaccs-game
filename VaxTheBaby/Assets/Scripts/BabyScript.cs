@@ -31,24 +31,21 @@ public class BabyScript : MonoBehaviour {
         Vector2 initialPos = Vector2.zero;
         float randFloat = Random.Range(0.0f, 1.0f);
         Debug.Log(randFloat);
-        if (false)
+        if (randFloat >= 0.5f)
         {
             initialPos.x = GameManager.topRight.x;
             GetComponent<SpriteRenderer>().flipX = false;
-            Debug.Log("Right baby : " + initialPos.x+ " , " + GetComponent<SpriteRenderer>().flipX);
         }
         else
         {
             initialPos.x = GameManager.bottomLeft.x;
             GetComponent<SpriteRenderer>().flipX = true;
-            speed *= -1;
-            Debug.Log("Right baby : " + initialPos.x + " , " + GetComponent<SpriteRenderer>().flipX);
+            //speed *= -1;
         }
 
         initialPos.y = Random.Range(GameManager.bottomLeft.y, GameManager.topRight.y);
-        Instantiate(gameObject);
         transform.position = initialPos;
-        
+        Instantiate(gameObject);        
     }
 
     public void WallCollision()
